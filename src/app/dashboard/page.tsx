@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { PlayerCheck } from "@/components/PlayerCheck";
+import { AGENCY_SITE_URL } from "@/lib/site";
 
 function formatMoney(cents: number) {
   return `$${(cents / 100).toFixed(2)}`;
@@ -23,7 +24,7 @@ export default async function DashboardPage() {
     .eq("partner_id", user.id)
     .single();
 
-  const referralLink = partner ? `https://ante.agency/?ref=${partner.referral_code}` : "";
+  const referralLink = partner ? `${AGENCY_SITE_URL}/?ref=${partner.referral_code}` : "";
 
   const cards = [
     { label: "Просмотры", value: stats?.views ?? 0 },

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { AGENCY_SITE_URL } from "@/lib/site";
 
 type Link = { id: string; label: string; code: string; clicks: number; created_at: string };
 
@@ -29,7 +30,7 @@ export function TrackingLinksManager({ userId, initialLinks }: { userId: string;
   }
 
   function copy(link: Link) {
-    const url = `https://ante.agency/?ref=${link.code}`;
+    const url = `${AGENCY_SITE_URL}/?ref=${link.code}`;
     navigator.clipboard?.writeText(url).catch(() => {});
     setCopiedId(link.id);
     setTimeout(() => setCopiedId(null), 1500);
@@ -59,7 +60,7 @@ export function TrackingLinksManager({ userId, initialLinks }: { userId: string;
           <div key={l.id} className="flex flex-wrap items-center justify-between gap-3 py-4">
             <div>
               <p className="font-semibold text-white">{l.label}</p>
-              <code className="text-xs text-[#D7FF3F]">https://ante.agency/?ref={l.code}</code>
+              <code className="text-xs text-[#D7FF3F]">{AGENCY_SITE_URL}/?ref={l.code}</code>
             </div>
             <div className="flex items-center gap-4">
               <span className="text-sm text-zinc-400">{l.clicks} кликов</span>
