@@ -16,7 +16,7 @@ export default async function LinksPage() {
   return (
     <main className="px-6 py-10 sm:px-12">
       <div className="mx-auto max-w-4xl">
-        <h1 className="font-bold text-2xl text-white">Трекинговые ссылки</h1>
+        <h1 className="font-bold text-2xl text-[#0A0A0A]">Трекинговые ссылки</h1>
         <p className="mt-1 text-sm text-zinc-500">
           Создавайте отдельные ссылки под разные площадки — статистика по каждой считается отдельно.
         </p>

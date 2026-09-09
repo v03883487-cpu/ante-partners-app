@@ -25,11 +25,11 @@ export function BootstrapAdminButton() {
     <div>
       <button
         onClick={handleClick}
-        className="rounded-full bg-[#D7FF3F] px-6 py-3 text-sm font-semibold text-[#0A0B0E] transition-transform hover:scale-105"
+        className="rounded-full bg-[#0A0A0A] px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-80"
       >
         Стать первым админом
       </button>
-      {message && <p className="mt-3 text-sm text-zinc-400">{message}</p>}
+      {message && <p className="mt-3 text-sm text-zinc-500">{message}</p>}
     </div>
   );
 }

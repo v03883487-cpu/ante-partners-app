@@ -58,7 +58,7 @@ export function ReportsTable({ userId }: { userId: string }) {
   );
 
   const inputCls =
-    "rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm text-white outline-none focus:border-[#D7FF3F]/50";
+    "rounded-lg border border-black/15 bg-white px-3 py-2 text-sm text-[#0A0A0A] outline-none focus:border-[#0A0A0A]";
 
   return (
     <div>
@@ -73,9 +73,9 @@ export function ReportsTable({ userId }: { userId: string }) {
         </label>
       </div>
 
-      <div className="mt-6 overflow-x-auto rounded-2xl border border-white/10">
+      <div className="mt-6 overflow-x-auto rounded-2xl border border-black/10">
         <table className="w-full min-w-[640px] text-left text-sm">
-          <thead className="bg-white/[0.03] text-xs uppercase tracking-wide text-zinc-500">
+          <thead className="bg-black/[0.03] text-xs uppercase tracking-wide text-zinc-500">
             <tr>
               <th className="px-4 py-3">Дата</th>
               <th className="px-4 py-3">Бренд</th>
@@ -85,7 +85,7 @@ export function ReportsTable({ userId }: { userId: string }) {
               <th className="px-4 py-3">Доход</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-white/10">
+          <tbody className="divide-y divide-black/10">
             {loading && (
               <tr><td colSpan={6} className="px-4 py-6 text-center text-zinc-500">Загрузка…</td></tr>
             )}
@@ -93,7 +93,7 @@ export function ReportsTable({ userId }: { userId: string }) {
               <tr><td colSpan={6} className="px-4 py-6 text-center text-zinc-500">Нет данных за период</td></tr>
             )}
             {rows.map((r, i) => (
-              <tr key={i} className="text-zinc-300">
+              <tr key={i} className="text-zinc-600">
                 <td className="px-4 py-3">{r.date}</td>
                 <td className="px-4 py-3">{r.brand}</td>
                 <td className="px-4 py-3">{r.clicks}</td>
@@ -104,7 +104,7 @@ export function ReportsTable({ userId }: { userId: string }) {
             ))}
           </tbody>
           {rows.length > 0 && (
-            <tfoot className="bg-white/[0.03] font-semibold text-white">
+            <tfoot className="bg-black/[0.03] font-semibold text-[#0A0A0A]">
               <tr>
                 <td className="px-4 py-3" colSpan={2}>Всего за период</td>
                 <td className="px-4 py-3">{totals.clicks}</td>

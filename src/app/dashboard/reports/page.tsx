@@ -10,7 +10,7 @@ export default async function ReportsPage() {
   return (
     <main className="px-6 py-10 sm:px-12">
       <div className="mx-auto max-w-5xl">
-        <h1 className="font-bold text-2xl text-white">Отчёты</h1>
+        <h1 className="font-bold text-2xl text-[#0A0A0A]">Отчёты</h1>
         <p className="mt-1 text-sm text-zinc-500">Статистика по дням и брендам за выбранный период.</p>
         <div className="mt-6">
           <ReportsTable userId={user.id} />

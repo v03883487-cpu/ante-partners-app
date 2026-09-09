@@ -14,14 +14,14 @@ export default async function AdminPage() {
 
   if (!self?.is_admin) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center gap-4 bg-[#0A0B0E] px-6 text-center text-zinc-50">
-        <p className="text-xs uppercase tracking-widest text-[#D7FF3F]">Ante Partners · Admin</p>
-        <h1 className="font-bold text-2xl text-white">Доступа нет</h1>
-        <p className="max-w-sm text-sm text-zinc-400">
+      <main className="flex min-h-screen flex-col items-center justify-center gap-4 bg-white px-6 text-center text-[#0A0A0A]">
+        <p className="text-xs uppercase tracking-widest text-zinc-500">Ante Partners · Admin</p>
+        <h1 className="font-bold text-2xl text-[#0A0A0A]">Доступа нет</h1>
+        <p className="max-w-sm text-sm text-zinc-500">
           Если админ ещё не назначен, вы можете стать первым — кнопка сработает только пока админов нет вообще.
         </p>
         <BootstrapAdminButton />
-        <Link href="/dashboard" className="mt-4 text-sm text-zinc-500 hover:text-white">← В кабинет</Link>
+        <Link href="/dashboard" className="mt-4 text-sm text-zinc-500 hover:text-[#0A0A0A]">← В кабинет</Link>
       </main>
     );
   }
@@ -60,14 +60,14 @@ export default async function AdminPage() {
   }));
 
   return (
-    <main className="min-h-screen bg-[#0A0B0E] px-6 py-10 text-zinc-50 sm:px-12">
+    <main className="min-h-screen bg-white px-6 py-10 text-[#0A0A0A] sm:px-12">
       <div className="mx-auto max-w-4xl">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs uppercase tracking-widest text-[#D7FF3F]">Ante Partners · Admin</p>
-            <h1 className="mt-1 font-bold text-2xl text-white">Управление партнёрами</h1>
+            <p className="text-xs uppercase tracking-widest text-zinc-500">Ante Partners · Admin</p>
+            <h1 className="mt-1 font-bold text-2xl text-[#0A0A0A]">Управление партнёрами</h1>
           </div>
-          <Link href="/dashboard" className="text-sm text-zinc-500 hover:text-white">← В кабинет</Link>
+          <Link href="/dashboard" className="text-sm text-zinc-500 hover:text-[#0A0A0A]">← В кабинет</Link>
         </div>
 
         <p className="mt-3 text-sm text-zinc-500">
