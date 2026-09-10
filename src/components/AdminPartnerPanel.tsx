@@ -94,54 +94,54 @@ export function AdminPartnerPanel({ partner }: { partner: AdminPartnerData }) {
   }
 
   const inputCls =
-    "w-full rounded-lg border border-black/15 bg-white px-3 py-1.5 text-sm text-[#0A0A0A] outline-none focus:border-[#0A0A0A]";
+    "w-full rounded-lg border border-white/15 bg-white/[0.03] px-3 py-1.5 text-sm text-white outline-none focus:border-white";
 
   return (
-    <div className="rounded-2xl border border-black/10 bg-white p-5">
+    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
       <button onClick={() => setOpen(!open)} className="flex w-full items-center justify-between text-left">
         <div>
-          <p className="font-semibold text-[#0A0A0A]">{partner.email}</p>
-          <p className="text-xs text-zinc-500">
+          <p className="font-semibold text-white">{partner.email}</p>
+          <p className="text-xs text-zinc-400">
             ref: {partner.referral_code} · статус: {partner.status} · баланс: ${(partner.balance_cents / 100).toFixed(2)}
           </p>
         </div>
-        <span className="text-zinc-500">{open ? "▲" : "▼"}</span>
+        <span className="text-zinc-400">{open ? "▲" : "▼"}</span>
       </button>
 
       {open && (
-        <div className="mt-5 flex flex-col gap-6 border-t border-black/10 pt-5">
+        <div className="mt-5 flex flex-col gap-6 border-t border-white/10 pt-5">
           <div>
-            <p className="mb-2 text-xs uppercase tracking-widest text-zinc-500">Статистика кабинета</p>
+            <p className="mb-2 text-xs uppercase tracking-widest text-zinc-400">Статистика кабинета</p>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-              <label className="text-xs text-zinc-500">
+              <label className="text-xs text-zinc-400">
                 Просмотры
                 <input type="number" value={views} onChange={(e) => setViews(Number(e.target.value))} className={inputCls} />
               </label>
-              <label className="text-xs text-zinc-500">
+              <label className="text-xs text-zinc-400">
                 Клики
                 <input type="number" value={clicks} onChange={(e) => setClicks(Number(e.target.value))} className={inputCls} />
               </label>
-              <label className="text-xs text-zinc-500">
+              <label className="text-xs text-zinc-400">
                 Регистрации
                 <input type="number" value={registrations} onChange={(e) => setRegistrations(Number(e.target.value))} className={inputCls} />
               </label>
-              <label className="text-xs text-zinc-500">
+              <label className="text-xs text-zinc-400">
                 Депозиторы
                 <input type="number" value={deposits} onChange={(e) => setDeposits(Number(e.target.value))} className={inputCls} />
               </label>
-              <label className="text-xs text-zinc-500">
+              <label className="text-xs text-zinc-400">
                 Доход, $
                 <input type="number" value={revenue} onChange={(e) => setRevenue(e.target.value)} className={inputCls} />
               </label>
-              <label className="text-xs text-zinc-500">
+              <label className="text-xs text-zinc-400">
                 Фикс. выплата, $
                 <input type="number" value={fixedPayout} onChange={(e) => setFixedPayout(e.target.value)} className={inputCls} />
               </label>
-              <label className="text-xs text-zinc-500">
+              <label className="text-xs text-zinc-400">
                 Баланс, $
                 <input type="number" value={balance} onChange={(e) => setBalance(e.target.value)} className={inputCls} />
               </label>
-              <label className="text-xs text-zinc-500">
+              <label className="text-xs text-zinc-400">
                 Статус
                 <select value={status} onChange={(e) => setStatus(e.target.value)} className={inputCls}>
                   <option value="pending">pending</option>
@@ -153,15 +153,15 @@ export function AdminPartnerPanel({ partner }: { partner: AdminPartnerData }) {
             <button
               onClick={saveStats}
               disabled={saving}
-              className="mt-3 rounded-full bg-[#0A0A0A] px-5 py-2 text-xs font-semibold text-white disabled:opacity-50"
+              className="mt-3 rounded-full bg-white px-5 py-2 text-xs font-semibold text-[#0a0a0a] disabled:opacity-50"
             >
               {saving ? "Сохраняем…" : savedAt ? "Сохранено ✓" : "Сохранить"}
             </button>
           </div>
 
           <div>
-            <p className="mb-2 text-xs uppercase tracking-widest text-zinc-500">Трекинговые ссылки</p>
-            <ul className="mb-3 flex flex-col gap-1 text-xs text-zinc-500">
+            <p className="mb-2 text-xs uppercase tracking-widest text-zinc-400">Трекинговые ссылки</p>
+            <ul className="mb-3 flex flex-col gap-1 text-xs text-zinc-400">
               {partner.links.map((l) => (
                 <li key={l.id}>
                   {l.label} — /?ref={l.code} — {l.clicks} кликов
@@ -176,14 +176,14 @@ export function AdminPartnerPanel({ partner }: { partner: AdminPartnerData }) {
                 onChange={(e) => setLinkLabel(e.target.value)}
                 className={inputCls}
               />
-              <button onClick={addLink} className="shrink-0 rounded-full border border-black/15 px-4 py-1.5 text-xs text-[#0A0A0A] hover:bg-black/5">
+              <button onClick={addLink} className="shrink-0 rounded-full border border-white/15 px-4 py-1.5 text-xs text-white hover:bg-white/10">
                 Добавить
               </button>
             </div>
           </div>
 
           <div>
-            <p className="mb-2 text-xs uppercase tracking-widest text-zinc-500">Добавить строку в отчёт</p>
+            <p className="mb-2 text-xs uppercase tracking-widest text-zinc-400">Добавить строку в отчёт</p>
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-6">
               <input type="date" value={dailyDate} onChange={(e) => setDailyDate(e.target.value)} className={inputCls} />
               <input placeholder="Бренд" value={dailyBrand} onChange={(e) => setDailyBrand(e.target.value)} className={inputCls} />
@@ -192,7 +192,7 @@ export function AdminPartnerPanel({ partner }: { partner: AdminPartnerData }) {
               <input type="number" placeholder="Деп." value={dailyDeps} onChange={(e) => setDailyDeps(Number(e.target.value))} className={inputCls} />
               <input type="number" placeholder="Доход $" value={dailyRevenue} onChange={(e) => setDailyRevenue(e.target.value)} className={inputCls} />
             </div>
-            <button onClick={addDailyStat} className="mt-2 rounded-full border border-black/15 px-4 py-1.5 text-xs text-[#0A0A0A] hover:bg-black/5">
+            <button onClick={addDailyStat} className="mt-2 rounded-full border border-white/15 px-4 py-1.5 text-xs text-white hover:bg-white/10">
               Добавить в отчёт
             </button>
           </div>

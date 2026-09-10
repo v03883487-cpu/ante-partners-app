@@ -28,10 +28,10 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-white px-6 text-[#0A0A0A]">
-      <div className="w-full max-w-sm rounded-3xl border border-black/10 bg-white p-8">
-        <h1 className="font-bold text-2xl text-[#0A0A0A]">Вход в кабинет</h1>
-        <p className="mt-1 text-sm text-zinc-500">Ante Partners</p>
+    <main className="flex min-h-screen items-center justify-center bg-[#0a0a0a] px-6 text-white">
+      <div className="w-full max-w-sm rounded-3xl border border-white/10 bg-white/[0.03] p-8">
+        <h1 className="font-bold text-2xl text-white">Вход в кабинет</h1>
+        <p className="mt-1 text-sm text-zinc-400">Ante Partners</p>
         <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
           <input
             type="email"
@@ -39,7 +39,7 @@ export default function LoginPage() {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-xl border border-black/15 bg-white px-4 py-2.5 text-sm text-[#0A0A0A] outline-none focus:border-[#0A0A0A]"
+            className="w-full rounded-xl border border-white/15 bg-white/[0.03] px-4 py-2.5 text-sm text-white outline-none focus:border-white"
           />
           <input
             type="password"
@@ -47,19 +47,19 @@ export default function LoginPage() {
             placeholder="Пароль"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-xl border border-black/15 bg-white px-4 py-2.5 text-sm text-[#0A0A0A] outline-none focus:border-[#0A0A0A]"
+            className="w-full rounded-xl border border-white/15 bg-white/[0.03] px-4 py-2.5 text-sm text-white outline-none focus:border-white"
           />
-          {error && <p className="text-sm text-red-600">{error}</p>}
+          {error && <p className="text-sm text-red-400">{error}</p>}
           <button
             type="submit"
             disabled={loading}
-            className="rounded-full bg-[#0A0A0A] px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-80 disabled:opacity-50"
+            className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#0a0a0a] transition-opacity hover:opacity-80 disabled:opacity-50"
           >
             {loading ? "Входим…" : "Войти"}
           </button>
         </form>
-        <p className="mt-6 text-center text-sm text-zinc-500">
-          Нет аккаунта? <Link href="/register" className="text-[#0A0A0A] underline hover:opacity-60">Зарегистрироваться</Link>
+        <p className="mt-6 text-center text-sm text-zinc-400">
+          Нет аккаунта? <Link href="/register" className="text-white underline hover:opacity-60">Зарегистрироваться</Link>
         </p>
       </div>
     </main>

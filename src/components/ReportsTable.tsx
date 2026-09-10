@@ -58,24 +58,24 @@ export function ReportsTable({ userId }: { userId: string }) {
   );
 
   const inputCls =
-    "rounded-lg border border-black/15 bg-white px-3 py-2 text-sm text-[#0A0A0A] outline-none focus:border-[#0A0A0A]";
+    "rounded-lg border border-white/15 bg-white/[0.03] px-3 py-2 text-sm text-white outline-none focus:border-white";
 
   return (
     <div>
       <div className="flex flex-wrap items-end gap-3">
-        <label className="text-xs text-zinc-500">
+        <label className="text-xs text-zinc-400">
           Начало
           <input type="date" value={from} onChange={(e) => setFrom(e.target.value)} className={`mt-1 block ${inputCls}`} />
         </label>
-        <label className="text-xs text-zinc-500">
+        <label className="text-xs text-zinc-400">
           Конец
           <input type="date" value={to} onChange={(e) => setTo(e.target.value)} className={`mt-1 block ${inputCls}`} />
         </label>
       </div>
 
-      <div className="mt-6 overflow-x-auto rounded-2xl border border-black/10">
+      <div className="mt-6 overflow-x-auto rounded-2xl border border-white/10">
         <table className="w-full min-w-[640px] text-left text-sm">
-          <thead className="bg-black/[0.03] text-xs uppercase tracking-wide text-zinc-500">
+          <thead className="bg-white/[0.03] text-xs uppercase tracking-wide text-zinc-400">
             <tr>
               <th className="px-4 py-3">Дата</th>
               <th className="px-4 py-3">Бренд</th>
@@ -85,15 +85,15 @@ export function ReportsTable({ userId }: { userId: string }) {
               <th className="px-4 py-3">Доход</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-black/10">
+          <tbody className="divide-y divide-white/10">
             {loading && (
-              <tr><td colSpan={6} className="px-4 py-6 text-center text-zinc-500">Загрузка…</td></tr>
+              <tr><td colSpan={6} className="px-4 py-6 text-center text-zinc-400">Загрузка…</td></tr>
             )}
             {!loading && rows.length === 0 && (
-              <tr><td colSpan={6} className="px-4 py-6 text-center text-zinc-500">Нет данных за период</td></tr>
+              <tr><td colSpan={6} className="px-4 py-6 text-center text-zinc-400">Нет данных за период</td></tr>
             )}
             {rows.map((r, i) => (
-              <tr key={i} className="text-zinc-600">
+              <tr key={i} className="text-zinc-300">
                 <td className="px-4 py-3">{r.date}</td>
                 <td className="px-4 py-3">{r.brand}</td>
                 <td className="px-4 py-3">{r.clicks}</td>
@@ -104,7 +104,7 @@ export function ReportsTable({ userId }: { userId: string }) {
             ))}
           </tbody>
           {rows.length > 0 && (
-            <tfoot className="bg-black/[0.03] font-semibold text-[#0A0A0A]">
+            <tfoot className="bg-white/[0.03] font-semibold text-white">
               <tr>
                 <td className="px-4 py-3" colSpan={2}>Всего за период</td>
                 <td className="px-4 py-3">{totals.clicks}</td>
